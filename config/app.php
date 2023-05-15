@@ -170,8 +170,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // Defining packages
-        \Delivery\Modules\Deliver\DeliverServiceProvider::class
+        \Delivery\Modules\Deliver\DeliverServiceProvider::class,
 
+        Spatie\Permission\PermissionServiceProvider::class,
     ])->toArray(),
 
     /*
