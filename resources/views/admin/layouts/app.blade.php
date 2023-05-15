@@ -52,6 +52,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Users
                     </a>
+                    <a class="nav-link" href="{{ url('admin/consignments') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        consignments
+                    </a>
 {{--                    <a class="nav-link collapsed" href="{{ url('admin/users') }}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">--}}
 {{--                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>--}}
 {{--                        users--}}
