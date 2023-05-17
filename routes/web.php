@@ -29,5 +29,6 @@ Route::middleware([\App\Http\Middleware\CheckIsAdmin::class])
     Route::resources([
         'users' => \App\Http\Controllers\UsersController::class,
         'consignments' => \App\Http\Controllers\ConsignmentsController::class,
+        'motors' => \App\Http\Controllers\MotorsController::class,
     ]);
 });
