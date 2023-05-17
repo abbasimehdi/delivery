@@ -52,6 +52,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         کاربران
                     </a>
+                    <a class="nav-link" href="{{ url('admin/motors') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        موتور ها
+                    </a>
                     <a class="nav-link" href="{{ url('admin/consignments') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         مرسوله ها
