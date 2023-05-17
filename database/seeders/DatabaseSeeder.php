@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Motor::factory(5)->create();
+        \App\Models\Address::factory(5)->create();
     }
 }
