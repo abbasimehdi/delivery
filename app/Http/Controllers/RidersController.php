@@ -76,6 +76,7 @@ class RidersController extends Controller
     public function destroy(string $id)
     {
         Rider::query()->where('id', $id)->delete();
+
         return redirect()->back();
     }
 }

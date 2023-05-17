@@ -5,13 +5,14 @@ namespace App\Models;
 use Database\Factories\MotorFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Motor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['plate','status', 'rider'];
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['plate', 'status', 'rider_id'];
 
     /**
      * Create a new factory instance for the model.
@@ -21,11 +22,8 @@ class Motor extends Model
         return MotorFactory::new();
     }
 
-    /**
-     * @return HasOne
-     */
-    public function rider(): HasOne
+    public function rider(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasOne(Rider::class);
+        return $this->belongsTo(Rider::class);
     }
 }

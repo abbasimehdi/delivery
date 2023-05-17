@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motor;
+use App\Models\Rider;
 use Illuminate\Http\Request;
-use function GuzzleHttp\Promise\all;
 
 class MotorsController extends Controller
 {
@@ -14,7 +14,7 @@ class MotorsController extends Controller
     public function index()
     {
         return view('admin.motors.index')
-            ->with('motors', Motor::all());
+            ->with('motors', Motor::query()->with(['rider'])->get());
     }
 
     /**
@@ -22,7 +22,7 @@ class MotorsController extends Controller
      */
     public function create()
     {
-        return view('admin.motors.store');
+        return view('admin.motors.store')->with(['riders' => Rider::all()]);
     }
 
     /**
@@ -32,7 +32,7 @@ class MotorsController extends Controller
     {
         Motor::create([
             'status' => $request->status,
-            'rider' => $request->rider,
+            'rider_id' => $request->rider_id,
             'plate' => $request->plate,
         ]);
 
@@ -75,6 +75,7 @@ class MotorsController extends Controller
     public function destroy(string $id)
     {
         Motor::query()->where('id', $id)->delete();
+
         return redirect()->back();
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class MotorFactory extends Factory
 {
     protected $model = Motor::class;
+
     /**
      * Define the model's default state.
      *

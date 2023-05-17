@@ -3,12 +3,12 @@
 namespace App\Modules\authentication\tests\Feature\v1\success;
 
 use App\Models\User;
+use App\Modules\deliver\src\Models\Schemas\Constants\DeliverConstants;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 use Tests\TestCase;
-use App\Modules\deliver\src\Models\Schemas\Constants\DeliverConstants;
 
 class LoginTest extends TestCase
 {

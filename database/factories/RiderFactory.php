@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class RiderFactory extends Factory
 {
     protected $model = Rider::class;
+
     /**
      * Define the model's default state.
      *

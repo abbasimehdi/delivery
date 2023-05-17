@@ -13,13 +13,15 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">راکب</label>
-                    <select name="rider" class="form-select" aria-label="Default select example">
-                        <option selected>rider1</option>
+                    <select name="rider_id" class="form-select" aria-label="Default select example">
+                        @foreach($riders as $rider)
+                            <option value="{{ $rider->id }}">{{ $rider->name. ' '. $rider->lastname }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">plate</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="name">
+                    <input type="text" name="plate" class="form-control" id="exampleInputPassword1" placeholder="name">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -25,7 +25,7 @@
                             <th scope="row"></th>
                             <th scope="row">{{ $i }}</th>
                             <td>{{ $motor->status }}</td>
-                            <td>{{ $motor->rider }}</td>
+                            <td>{{ $motor->rider->name. ''. $motor->rider->lastname }}</td>
                             <td>{{ $motor->plate }}</td>
                             <td>
                                 <form method="POST" action="/admin/motors/{{$motor->id}}">

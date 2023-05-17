@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-use torfeh\modules\base\Models\Schemas\Constants\BaseConstants;
 
 class CheckIsAdmin
 {
@@ -17,9 +16,9 @@ class CheckIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-            if (!Auth::user()->hasRole('admin')) {
-                return redirect('home');
-            }
+        if (! Auth::user()->hasRole('admin')) {
+            return redirect('home');
+        }
 
         return $next($request);
     }
