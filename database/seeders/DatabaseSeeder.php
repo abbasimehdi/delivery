@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Motor;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class
         ]);
+
+        \App\Models\Motor::factory(5)->create();
     }
 }
