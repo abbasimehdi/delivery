@@ -14,6 +14,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">default address</th>
                     <th scope="col">created_at</th>
                     <th scope="col">operation</th>
                 </tr>
@@ -26,6 +27,7 @@
                             <th scope="row">{{ $i }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->addresses[0]->address }}</td>
                             <td>{{ $user->created_At }}</td>
                             <td>
                                 <form method="POST" action="/admin/users/{{$user->id}}">

@@ -14,7 +14,11 @@ class UsersController extends Controller
     public function index()
     {
         return view('admin.users.index')
-            ->with('users', User::query()->whereNot('email', Auth::user()->email)->get());
+            ->with('users', User::whereNot('email', Auth::user()->email)
+                ->with(['addresses' => function ($query) {
+                    $query->where('is_default', 1);
+                },
+                ])->get());
     }
 
     /**

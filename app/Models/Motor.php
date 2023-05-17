@@ -23,10 +23,7 @@ class Motor extends Model
         return MotorFactory::new();
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function rider(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function rider(): BelongsTo
     {
         return $this->belongsTo(Rider::class);
     }
