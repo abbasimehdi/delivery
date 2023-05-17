@@ -2,16 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Motor;
 use App\Models\Rider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Motor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rider>
  */
-class MotorFactory extends Factory
+class RiderFactory extends Factory
 {
-    protected $model = Motor::class;
+    protected $model = Rider::class;
     /**
      * Define the model's default state.
      *
@@ -20,9 +19,10 @@ class MotorFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => fake()->name,
+            'lastname' => fake()->lastname,
+            'personnel_code' => fake()->unique()->numberBetween(10000, 99999),
             'status' => fake()->boolean,
-            'rider_id' => self::factoryForModel(Rider::class),
-            'plate' => fake()->unique()->word(7),
         ];
     }
 }

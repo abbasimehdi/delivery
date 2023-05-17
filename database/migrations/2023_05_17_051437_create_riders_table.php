@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('motors', function (Blueprint $table) {
+        Schema::create('riders', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('rider_id')->nullable();
-            $table->foreign('rider_id')->references('id')->on('riders')->cascadeOnDelete();
-
-            $table->string('plate')->comment('پلاک');
-            $table->boolean('status')->default(1)->comment('وضعیت موتور');
+            $table->string('name')->comment('نام');
+            $table->string('lastname')->comment(' نام خانوادگی');
+            $table->string('personnel_code')->comment('شماره پرسنلی');
+            $table->boolean('status')->default(true)->comment('وضعیت راکب');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('motors');
+        Schema::dropIfExists('riders');
     }
 };
