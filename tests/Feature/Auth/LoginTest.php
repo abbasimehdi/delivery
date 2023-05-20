@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use torfeh\modules\base\Models\Schemas\Constants\BaseConstants;
 
 class LoginTest extends TestCase
 {
@@ -14,7 +15,7 @@ class LoginTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->user = User::factory()->create(['password' => bcrypt('12345678')]);
+        $this->user = User::factory()->create([BaseConstants::PASSWORD => bcrypt(BaseConstants::PASSWORD_VALUE)]);
     }
 
     /**
@@ -22,10 +23,10 @@ class LoginTest extends TestCase
      */
     public function test_user_can_view_a_login_form()
     {
-        $response = $this->get('/login');
+        $response = $this->get(BaseConstants::LOGIN);
 
         $response->assertSuccessful();
-        $response->assertViewIs('auth.login');
+        $response->assertViewIs(BaseConstants::AUTH_LOGIN);
     }
 
     /**
@@ -33,9 +34,9 @@ class LoginTest extends TestCase
      */
     public function test_user_cannot_view_a_login_form_when_authenticated()
     {
-        $response = $this->actingAs($this->user)->get('/login');
+        $response = $this->actingAs($this->user)->get(BaseConstants::LOGIN);
 
-        $response->assertRedirect('/home');
+        $response->assertRedirect(BaseConstants::HOME);
     }
 
     /**
@@ -43,12 +44,12 @@ class LoginTest extends TestCase
      */
     public function test_user_can_login_with_correct_credentials()
     {
-        $response = $this->post('/login', [
-            'email' => $this->user->email,
-            'password' => '12345678',
+        $response = $this->post(BaseConstants::LOGIN, [
+            BaseConstants::EMAIL => $this->user->email,
+            BaseConstants::PASSWORD => BaseConstants::PASSWORD_VALUE,
         ]);
 
-        $response->assertRedirect('/home');
+        $response->assertRedirect(BaseConstants::HOME);
         $this->assertAuthenticatedAs($this->user);
     }
 }
