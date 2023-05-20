@@ -17,6 +17,8 @@
 - npm i
 - npm run dev
 - sudo docker-compose up -d
+-  sudo docker-compose exec app php artisan migrate
+-  sudo docker-compose exec app php artisan db:seed
 - http://your_local_ip
 
 ## Testing sections
@@ -28,6 +30,8 @@
 - sudo docker-compose exec app php artisan test
 
 ### panel information
+- role:superAdmin
+- route:http://your_local_ip
 - email: admin@admin.me
 - password: 12345678
 
