@@ -12,7 +12,28 @@
 - npm
 - docker
 
+
 # Run Project
 - npm i
 - npm run dev
 - sudo docker-compose up -d
+- http://your_local_ip
+
+## Testing sections
+
+- Authentication
+
+### Running tests
+
+- sudo docker-compose exec app php artisan test
+
+### panel information
+- email: admin@admin.me
+- password: 12345678
+
+## Security Vulnerabilities
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
