@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consignment;
+use App\Models\Rider;
 use Illuminate\Http\Request;
 
 class ConsignmentsController extends Controller
@@ -13,7 +14,7 @@ class ConsignmentsController extends Controller
     public function index()
     {
         return view('admin.consignments.index')
-            ->with('users', Consignment::all());
+            ->with('consignments', Consignment::query()->with(['rider'])->get());
     }
 
     /**
@@ -21,7 +22,7 @@ class ConsignmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.consignments.store')->with(['riders' => Rider::all()]);
     }
 
     /**
@@ -29,7 +30,16 @@ class ConsignmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Consignment::create([
+            'name' => $request->name,
+            'status' => $request->status,
+            'rider_id' => $request->rider_id,
+            'code' => $request->code,
+            'delivery_start' => $request->delivery_start,
+            'delivery_end' => $request->delivery_end,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -45,7 +55,10 @@ class ConsignmentsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.consignments.edit')->with([
+            'consignment' => Consignment::findOrfail($id),
+            'riders' => Rider::all(),
+        ]);
     }
 
     /**
@@ -53,7 +66,16 @@ class ConsignmentsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Consignment::where('id', $id)->update([
+            'name' => $request->name,
+            'status' => $request->status,
+            'rider_id' => $request->rider_id,
+            'code' => $request->code,
+            'delivery_start' => $request->delivery_start,
+            'delivery_end' => $request->delivery_end,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -61,6 +83,8 @@ class ConsignmentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Consignment::query()->where('id', $id)->delete();
+
+        return redirect()->back();
     }
 }
