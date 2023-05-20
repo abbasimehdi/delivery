@@ -1,6 +1,6 @@
 <?php
 
-namespace torfeh\modules\base\Models\Schemas\Constants;
+namespace App\Constants;
 
 class BaseConstants
 {
@@ -15,6 +15,7 @@ class BaseConstants
     const HOME = '/home';
 
     const EMAIL = 'email';
+    const CITIES = 'admin/cities';
 
     const ALL_SLUGS = [
         self::PASSWORD,
@@ -23,5 +24,6 @@ class BaseConstants
         self::LOGIN,
         self::AUTH_LOGIN,
         self::EMAIL,
+        self::CITIES,
     ];
 }

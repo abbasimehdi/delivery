@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use torfeh\modules\base\Models\Schemas\Constants\BaseConstants;
+use App\Constants\BaseConstants;
 
 class LoginTest extends TestCase
 {
