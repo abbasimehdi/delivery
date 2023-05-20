@@ -3,8 +3,15 @@
 @section('content')
 
         <div id="layoutSidenav_content">
-            <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('admin/users')}}">
+            <form
+                name="add-blog-post-form"
+                id="add-blog-post-form"
+                method="post"
+                action="{{url('admin/users', ['id' => $user->id])}}"
+            >
                 @csrf
+                {{ method_field('PUT') }}
+
                 <div class="form-group">
                     <label for="exampleInputPassword1">Name</label>
                     <input type="text" name="name" class="form-control" value="{{old('name', $user->name)}}" id="exampleInputPassword1" placeholder="name">

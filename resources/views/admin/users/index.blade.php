@@ -20,14 +20,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @php $i = 1; @endphp
+                    @php $i = 1; $j = 0 @endphp
                     @foreach($users as $user)
                         <tr>
                             <th scope="row"></th>
                             <th scope="row">{{ $i }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->addresses[0]->address }}</td>
+                            <td>{{ $user->addresses[$j]->address ?? '--' }}</td>
                             <td>{{ $user->created_At }}</td>
                             <td>
                                 <form method="POST" action="/admin/users/{{$user->id}}">
