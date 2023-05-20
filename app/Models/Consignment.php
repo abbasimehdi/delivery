@@ -20,9 +20,6 @@ class Consignment extends Model
         return ConsignmentFactory::new();
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function rider(): BelongsTo
     {
         return $this->belongsTo(Rider::class, 'rider_id');

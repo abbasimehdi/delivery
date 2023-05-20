@@ -15,25 +15,16 @@ class Rider extends Model
 
     protected $fillable = ['name', 'lastname', 'personnel_code', 'status'];
 
-    /**
-     * @return RiderFactory
-     */
     protected static function newFactory(): RiderFactory
     {
         return RiderFactory::new();
     }
 
-    /**
-     * @return HasOne
-     */
-    public function motor(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function motor(): HasOne
     {
         return $this->hasOne(Motor::class);
     }
 
-    /**
-     * @return HasOne
-     */
     public function consignment(): HasOne
     {
         return $this->hasOne(Consignment::class);

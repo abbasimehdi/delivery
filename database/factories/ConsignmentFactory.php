@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ConsignmentFactory extends Factory
 {
     protected $model = Consignment::class;
+
     /**
      * Define the model's default state.
      *
