@@ -64,6 +64,10 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         مرسوله ها
                     </a>
+                    <a class="nav-link" href="{{ url('admin/cities') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    شهر ها
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">

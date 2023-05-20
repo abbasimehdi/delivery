@@ -31,5 +31,6 @@ Route::middleware([\App\Http\Middleware\CheckIsAdmin::class])
             'consignments' => \App\Http\Controllers\ConsignmentsController::class,
             'motors' => \App\Http\Controllers\MotorsController::class,
             'riders' => \App\Http\Controllers\RidersController::class,
+            'cities' => \App\Http\Controllers\CitiesController::class,
         ]);
     });
