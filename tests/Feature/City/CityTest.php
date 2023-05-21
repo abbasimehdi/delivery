@@ -30,11 +30,11 @@ class CityTest extends TestCase
     /** @test */
     public function unauthenticated_users_cannot_create_a_new_city()
     {
-        //Given we have a task object
+        //Given we have a city object
         $city = \App\Models\City::factory()->create();
-        //When unauthenticated user submits post request to create task endpoint
-        // He should be redirected to login page
+        //When unauthenticated user submits post request to create city endpoint
         $this->post('/cities/store',$city->toArray());
-        $this->get('/');
+        // He should be redirected to login page
+        $this->get('/login');
     }
 }
